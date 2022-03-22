@@ -47,7 +47,29 @@ uint64_t gcd64_v2(uint64_t u, uint64_t v) {
   return u << min(u_ctz, v_ctz);
 }
 
+// uint64_t gcd64_v3(uint64_t u, uint64_t v) {
+//   uint64_t r = u | v;
+//   if (!u || !v)
+//     return r;
+
+//   v >>= __ffs(v);
+
+//   if (v == 1)
+//     return r & -r;
+//   for (;;){
+//     u >>= __ffs(u);
+//     if(u == 1)
+//       return r & -r;
+//     if(u == v)
+//       return u << __ffs(r);
+//     if(u<v)
+//       swap(u,v);
+//     u -= v;
+//   }
+// }
+
 int main() {
   printf("%u", gcd64(128, 10));
   printf("%u", gcd64_v2(128, 10));
+  // printf("%u", gcd64_v3(128, 10));
 }
